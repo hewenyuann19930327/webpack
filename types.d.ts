@@ -3023,6 +3023,11 @@ declare interface Experiments {
 	asset?: boolean;
 
 	/**
+	 * Allow to configure that async entries can be parsed.
+	 */
+	asyncEntries?: boolean;
+
+	/**
 	 * Support WebAssembly as asynchronous EcmaScript Module.
 	 */
 	asyncWebAssembly?: boolean;

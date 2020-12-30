@@ -701,6 +701,10 @@
           "description": "Allow module type 'asset' to generate assets.",
           "type": "boolean"
         },
+        "asyncEntries": {
+          "description": "Allow to configure that async entries can be parsed.",
+          "type": "boolean"
+        },
         "asyncWebAssembly": {
           "description": "Support WebAssembly as asynchronous EcmaScript Module.",
           "type": "boolean"
