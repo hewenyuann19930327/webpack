@@ -193,6 +193,26 @@ describe("Defaults", () => {
 		    "exprContextRecursive": true,
 		    "exprContextRegExp": false,
 		    "exprContextRequest": ".",
+		    "generator": Object {},
+		    "parser": Object {
+		      "asset": Object {
+		        "dataUrlCondition": Object {
+		          "maxSize": 8096,
+		        },
+		      },
+		      "javascript": Object {
+		        "entries": Object {
+		          "__webpack_web_entry__": Object {
+		            "dependencyType": "import",
+		            "entryOptions": Object {
+		              "chunkFormat": "array-push",
+		              "layer": "web",
+		            },
+		            "return": "files",
+		          },
+		        },
+		      },
+		    },
 		    "rules": Array [],
 		    "strictExportPresence": false,
 		    "strictThisContextOnImports": false,
