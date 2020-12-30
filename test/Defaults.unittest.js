@@ -200,18 +200,7 @@ describe("Defaults", () => {
 		          "maxSize": 8096,
 		        },
 		      },
-		      "javascript": Object {
-		        "entries": Object {
-		          "__webpack_web_entry__": Object {
-		            "dependencyType": "import",
-		            "entryOptions": Object {
-		              "chunkFormat": "array-push",
-		              "layer": "web",
-		            },
-		            "return": "files",
-		          },
-		        },
-		      },
+		      "javascript": Object {},
 		    },
 		    "rules": Array [],
 		    "strictExportPresence": false,

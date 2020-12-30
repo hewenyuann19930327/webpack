@@ -1151,6 +1151,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "byArguments": {
+          "description": "Determine values based on custom logic. First argument is an context object, second and following arguments are values passed in source code. Return value is merged with the static values.",
+          "instanceof": "Function",
+          "tsType": "((info: { expression: import('estree').Expression }, ...args: any[]) => false | JavascriptParserAsyncEntryDescription)"
+        },
         "dependencyType": {
           "description": "Specify the dependency type of the request that is used for resolving.",
           "type": "string"
@@ -1201,10 +1206,6 @@
                 "anyOf": [
                   {
                     "enum": [false]
-                  },
-                  {
-                    "instanceof": "Function",
-                    "tsType": "((info: { expression: import('estree').Expression }, ...args: any[]) => false | JavascriptParserAsyncEntryDescription)"
                   },
                   {
                     "$ref": "#/definitions/JavascriptParserAsyncEntryDescription"

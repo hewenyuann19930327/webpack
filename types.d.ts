@@ -4580,6 +4580,14 @@ declare class JavascriptParser extends Parser {
  */
 declare interface JavascriptParserAsyncEntryDescription {
 	/**
+	 * Determine values based on custom logic. First argument is an context object, second and following arguments are values passed in source code. Return value is merged with the static values.
+	 */
+	byArguments?: (
+		info: { expression: Expression },
+		...args: any[]
+	) => false | JavascriptParserAsyncEntryDescription;
+
+	/**
 	 * Specify the dependency type of the request that is used for resolving.
 	 */
 	dependencyType?: string;
@@ -4631,15 +4639,7 @@ declare interface JavascriptParserOptions {
 	 */
 	entries?:
 		| false
-		| {
-				[index: string]:
-					| false
-					| ((
-							info: { expression: Expression },
-							...args: any[]
-					  ) => false | JavascriptParserAsyncEntryDescription)
-					| JavascriptParserAsyncEntryDescription;
-		  };
+		| { [index: string]: false | JavascriptParserAsyncEntryDescription };
 
 	/**
 	 * Enable/disable parsing of EcmaScript Modules syntax.

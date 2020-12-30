@@ -1506,13 +1506,7 @@ export interface JavascriptParserOptions {
 				/**
 				 * Specify behavior of this async entrypoint.
 				 */
-				[k: string]:
-					| false
-					| ((
-							info: {expression: import("estree").Expression},
-							...args: any[]
-					  ) => false | JavascriptParserAsyncEntryDescription)
-					| JavascriptParserAsyncEntryDescription;
+				[k: string]: false | JavascriptParserAsyncEntryDescription;
 		  };
 	/**
 	 * Enable/disable parsing of EcmaScript Modules syntax.
@@ -1560,6 +1554,13 @@ export interface JavascriptParserOptions {
  * Options for any async entrypoint.
  */
 export interface JavascriptParserAsyncEntryDescription {
+	/**
+	 * Determine values based on custom logic. First argument is an context object, second and following arguments are values passed in source code. Return value is merged with the static values.
+	 */
+	byArguments?: (
+		info: {expression: import("estree").Expression},
+		...args: any[]
+	) => false | JavascriptParserAsyncEntryDescription;
 	/**
 	 * Specify the dependency type of the request that is used for resolving.
 	 */

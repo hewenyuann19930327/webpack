@@ -16,9 +16,7 @@ module.exports = {
 	target: "node",
 	output: {
 		filename: "[name].js",
-		chunkFilename: "[name].js",
-		enabledChunkLoadingTypes: ["...", "jsonp"],
-		enabledChunkFormatTypes: ["...", "array-push"]
+		chunkFilename: "[name].js"
 	},
 	module: {
 		parser: {
@@ -46,11 +44,9 @@ module.exports = {
 						},
 						return: "files"
 					},
-					API: (info, request, name) => ({
+					API: {
 						entryOptions: {
-							name: `api/${name}`,
 							layer: "server",
-							chunkLayer: "server",
 							chunkLoading: "require",
 							chunkFormat: "commonjs",
 							runtime: "api-runtime",
@@ -59,8 +55,13 @@ module.exports = {
 								export: "default"
 							}
 						},
-						value: `/${name}`
-					})
+						byArguments: (info, request, name) => ({
+							entryOptions: {
+								name: `api/${name}`
+							},
+							value: `/${name}`
+						})
+					}
 				}
 			}
 		}
@@ -86,7 +87,8 @@ module.exports = {
 	},
 	experiments: {
 		topLevelAwait: true,
-		layers: true
+		layers: true,
+		asyncEntries: true
 	}
 };
 ```
